@@ -536,15 +536,15 @@ export function LMDBExplorer() {
                     No records found. Try adjusting your filters.
                   </p>
                 ) : (
-                  <div className="space-y-3 max-h-[calc(100vh-16rem)] overflow-y-auto">
+                  <div className="grid grid-cols-2 gap-4 max-h-[calc(100vh-16rem)] overflow-y-auto">
                     {records.map((record) => (
                       <div
                         key={record.key}
-                        className="border rounded-lg p-4 hover:bg-muted cursor-pointer transition-colors hover:shadow-sm"
+                        className="border rounded-lg p-4 hover:bg-muted cursor-pointer transition-colors hover:shadow-sm flex flex-col min-h-[200px] max-h-[280px]"
                         onClick={() => loadRecordDetails(record.key)}
                       >
-                        <p className="text-xs font-mono text-muted-foreground mb-2">Key: {record.key}</p>
-                        <pre className="text-xs whitespace-pre-wrap line-clamp-3">
+                        <p className="text-xs font-mono text-muted-foreground mb-2 flex-shrink-0">Key: {record.key}</p>
+                        <pre className="text-xs whitespace-pre-wrap overflow-y-auto flex-1 bg-muted/30 p-2 rounded">
                           {JSON.stringify(record.value, null, 2)}
                         </pre>
                       </div>
